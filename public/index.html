@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClitSuction – Estimuladores de Clitóris</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    /* ======================= VARIABLES ======================= */
+    :root {
+      --pink-900:#d10063;
+      --pink-700:#e6007e;
+      --pink-500:#ff57b9;
+      --pink-200:#ffd6ee;
+      --gray-900:#111111;
+      --gray-100:#faf6fb;
+      --radius:18px;
+      --shadow:0 8px 20px rgba(0,0,0,.08);
+    }
+
+    /* ======================= RESET ========================== */
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Poppins',sans-serif;background:var(--gray-100);color:var(--gray-900);line-height:1.6;}
+    img{display:block;width:100%;height:auto;}
+    a{color:var(--pink-700);text-decoration:none;transition:.25s;}
+    a:hover{color:var(--pink-500);}    
+
+    /* ======================= UTILITIES ====================== */
+    .container{max-width:1160px;margin:auto;padding:0 1rem;}
+    .flex-center{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;}
+    .section{padding:4.5rem 0;}
+
+    /* ======================= NAVBAR ========================= */
+    header.navbar{position:sticky;top:0;width:100%;background:#fff;border-bottom:1px solid #eee;z-index:1000;box-shadow:0 4px 12px rgba(0,0,0,.03);}    
+    .navbar .logo{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:600;color:var(--pink-900);}    
+    nav.nav-menu{display:flex;gap:2rem;font-weight:600;justify-content:center;flex:1;}
+    nav.nav-menu a{position:relative;padding:.25rem 0;}
+    nav.nav-menu a::after{content:"";position:absolute;width:0;height:2px;background:var(--pink-500);bottom:-4px;left:0;transition:.3s;opacity:.9;}
+    nav.nav-menu a:hover::after{width:100%;}
+    .menu-toggle{display:none;background:none;border:none;font-size:2rem;color:var(--pink-700);cursor:pointer;}
+
+    /* Mobile Menu */
+    @media(max-width:768px){
+      nav.nav-menu{position:fixed;top:64px;left:0;right:0;background:#fff;flex-direction:column;gap:1.5rem;padding:2rem 0;max-height:0;overflow:hidden;transition:max-height .4s ease;}
+      nav.nav-menu.open{max-height:500px;}
+      .menu-toggle{display:block;}
+      .navbar .container{justify-content:space-between;}
+    }
+
+    /* ======================= HERO =========================== */
+    .hero{background:radial-gradient(circle at 70% 30%,var(--pink-700),var(--pink-900));color:#fff;text-align:center;padding:5rem 1.2rem;position:relative;overflow:hidden;}
+    .hero::after{content:"";position:absolute;inset:0;opacity:.15;background:url('https://www.transparenttextures.com/patterns/papyrus.png');}
+    .hero h1{font-size:2.8rem;font-family:'Playfair Display',serif;margin-bottom:1rem;letter-spacing:-.5px;}
+    .hero p{font-size:1.25rem;margin-bottom:2.5rem;max-width:600px;margin-inline:auto;}
+
+    /* Buttons */
+    .btn{display:inline-block;border:none;border-radius:999px;font-weight:700;padding:.9rem 2.2rem;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;transition:.3s;}
+    .btn-primary{background:#fff;color:var(--pink-900);}
+    .btn-primary:hover{background:var(--pink-200);}    
+    .btn-secondary{background:var(--pink-700);color:#fff;padding:.6rem 1.6rem;font-size:.9rem;}
+    .btn-secondary:hover{background:var(--pink-500);}    
+
+    /* ======================= PRODUCTS ======================= */
+    .products-grid{display:grid;gap:2.2rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+    .product-card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s;}
+    .product-card:hover{transform:translateY(-6px);box-shadow:0 12px 24px rgba(0,0,0,.12);}    
+    .product-card figure{height:250px;overflow:hidden;}
+    .product-card h3{font-size:1.35rem;margin:1rem 1.25rem .5rem;font-weight:600;}
+    .product-card p{flex:1;margin:0 1.25rem 1.25rem;color:#555;}
+    .product-card .btn-secondary{margin:0 1.25rem 1.5rem;align-self:flex-start;}
+
+    /* ======================= LISTAS / BENEFITS ============== */
+    .benefits-list{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+    .benefits-list li{background:#fff;padding:1.6rem 1.4rem;border-radius:var(--radius);box-shadow:var(--shadow);font-weight:500;}
+
+    /* ======================= TESTIMONIALS =================== */
+    .testimonials{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+    blockquote{background:#fff;padding:2rem;border-left:5px solid var(--pink-700);border-radius:0 var(--radius) var(--radius) 0;font-style:italic;box-shadow:var(--shadow);}    
+    blockquote cite{display:block;margin-top:1rem;font-weight:600;}
+
+    /* ======================= FAQ ============================ */
+    details{background:#fff;border-radius:var(--radius);padding:1.2rem 1.5rem;margin-bottom:1rem;box-shadow:var(--shadow);}
+    summary{font-weight:600;color:var(--pink-900);cursor:pointer;}    
+
+    /* ======================= FOOTER ========================= */
+    footer{background:var(--gray-900);color:#eee;padding:3.5rem 1rem;}
+    .footer-grid{display:grid;gap:2.5rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+    footer a{color:#fff;}
+    footer a:hover{color:var(--pink-500);}    
+    .copyright{text-align:center;margin-top:2.8rem;font-size:.85rem;opacity:.7;}
+
+    /* ======================= KEYFRAMES ====================== */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+  </style>
+</head>
+<body>
+  <!-- ▸▸ NAVBAR ◂◂ -->
+  <header class="navbar" id="top">
+    <div class="container flex-center" style="justify-content:space-between;">
+      <a class="logo" href="#top">ClitSuction</a>
+      <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#produtos">Produtos</a>
+        <a href="#beneficios">Benefícios</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ▸▸ HERO ◂◂ -->
+  <section class="hero section">
+    <div class="container">
+      <h1>Orgasmos Em Um Suspiro</h1>
+      <p>Descubra a gama de estimuladores de clitóris que unem tecnologia de ar pulsado e vibrações de alta frequência para levar você ao clímax mais rápido – e quantas vezes quiser.</p>
+      <a href="#produtos" class="btn btn-primary">Ver Produtos</a>
+    </div>
+  </section>
+
+  <!-- ▸▸ PRODUTOS ◂◂ -->
+  <section id="produtos" class="section">
+    <div class="container">
+      <h2 class="flex-center" style="font-family:'Playfair Display',serif;font-size:2.2rem;">Nossos Destaques</h2>
+      <div class="products-grid" style="margin-top:2.5rem;">
+
+        <article class="product-card">
+          <figure><img src="assets/satisfyer-pro-2.jpg" alt="Satisfyer Pro 2"></figure>
+          <h3>Satisfyer Pro 2</h3>
+          <p>Orgasmos por ar pulsado em menos de 3&nbsp;minutos.</p>
+          <a href="https://wa.me/5500000000000?text=Quero%20comprar%20o%20Satisfyer%20Pro%202" target="_blank" class="btn btn-secondary">Comprar</a>
+        </article>
+
+        <article class="product-card">
+          <figure><img src="assets/lelosona.jpg" alt="Lelo Sona Cruise"></figure>
+          <h3>Lelo Sona Cruise</h3>
+          <p>12 modos de onda sônica que se adaptam à sua intensidade.</p>
+          <a href="https://wa.me/5500000000000?text=Quero%20comprar%20o%20Lelo%20Sona%20Cruise" target="_blank" class="btn btn-secondary">Comprar</a>
+        </article>
+
+        <article class="product-card">
+          <figure><img src="assets/duo-vibe.jpg" alt="Duo Vibe 2‑in‑1"></figure>
+          <h3>Duo Vibe 2‑in‑1</h3>
+          <p>Sucção + vibração sincronizadas para orgasmos múltiplos.</p>
+          <a href="https://wa.me/5500000000000?text=Quero%20comprar%20o%20Duo%20Vibe" target="_blank" class="btn btn-secondary">Comprar</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ▸▸ BENEFÍCIOS ◂◂ -->
+  <section id="beneficios" class="section" style="background:#fff;">
+    <div class="container">
+      <h2 class="flex-center" style="font-family:'Playfair Display',serif;font-size:2.2rem;">Por Que Escolher a ClitSuction?</h2>
+      <ul class="benefits-list" style="margin-top:2.2rem;">
+        <li><strong>Discrição Total</strong> – embalagem neutra e sem logotipo.</li>
+        <li><strong>Garantia de 1&nbsp;Ano</strong> – suporte ágil e troca imediata.</li>
+        <li><strong>Tecnologia Pró‑Prazer</strong> – motores silenciosos, ar pulsado & vibrações.</li>
+        <li><strong>Pagamento Flex</strong> – PIX, cartão ou até 12× sem juros.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ▸▸ DEPOIMENTOS ◂◂ -->
+  <section id="depoimentos" class="section">
+    <div class="container">
+      <h2 class="flex-center" style="font-family:'Playfair Display',serif;font-size:2.2rem;">Elas Contam Tudo…</h2>
+      <div class="testimonials" style="margin-top:2rem;">
+        <blockquote>“Demorava 15 minutos para chegar lá. Agora, menos de 3! Incrível.”<cite> — Ana P., 32&nbsp;anos</cite></blockquote>
+        <blockquote>“Meu primeiro orgasmo múltiplo veio com o Duo Vibe. Nunca mais largo.”<cite> — Sofia L., 27&nbsp;anos</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ▸▸ FAQ ◂◂ -->
+  <section id="faq" class="section" style="background:#fff;">
+    <div class="container">
+      <h2 class="flex-center" style="font-family:'Playfair Display',serif;font-size:2.2rem;">Perguntas Frequentes</h2>
+      <details>
+        <summary>É seguro usar estimuladores de clitóris?</summary>
+        <p>Sim! Todos os nossos toys são de silicone grau médico, livres de ftalatos e aprovados pela&nbsp;Anvisa.</p>
+      </details>
+      <details>
+        <summary>Como faço a higienização?</summary>
+        <p>Lave em água morna com sabão neutro, seque com pano macio e finalize com spray bactericida.</p>
+      </details>
+      <details>
+        <summary>Qual a política de garantia?</summary>
+        <p>12 meses contra defeitos de fabricação. Nosso suporte faz a troca sem burocracia.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ▸▸ FOOTER ◂◂ -->
+  <footer id="contato">
+    <div class="container footer-grid">
+      <div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;">ClitSuction</h3>
+        <p>Prazer que cabe na palma da sua mão.</p>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <p><a href="mailto:atendimento@clitsuction.com">atendimento@clitsuction.com</a></p>
+        <p><a href="https://wa.me/5500000000000?text=Olá%20ClitSuction" target="_blank">WhatsApp (00) 00000‑0000</a></p>
+      </div>
+      <div>
+        <h4>Siga‑nos</h4>
+        <p class="flex-center" style="gap:.8rem;justify-content:flex-start;">
+          <a href="https://instagram.com/clitsuction" target="_blank">Instagram</a>
+          <a href="https://tiktok.com/@clitsuction" target="_blank">TikTok</a>
+          <a href="https://x.com/clitsuction" target="_blank">X/Twitter</a>
+        </p>
+      </div>
+    </div>
+    <p class="copyright">© 2025 ClitSuction. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- ▸▸ JS ◂◂ -->
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu   = document.getElementById('nav-menu');
+    toggle.addEventListener('click',()=>menu.classList.toggle('open'));
+  </script>
+</body>
+</html>
